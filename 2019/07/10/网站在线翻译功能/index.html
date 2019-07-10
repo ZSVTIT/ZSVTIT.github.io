@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="##实现的思路&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等">
+<meta name="description" content="实现的思路&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;我今天要实现我的网站的翻译功能。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网站在线翻译功能">
 <meta property="og:url" content="http://yoursite.com/2019/07/10/网站在线翻译功能/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="##实现的思路&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等">
+<meta property="og:description" content="实现的思路&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;我今天要实现我的网站的翻译功能。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="e:/信息图片/java.png">
 <meta property="og:image" content="e:/信息图片/python.png">
-<meta property="og:updated_time" content="2019-07-10T07:24:29.421Z">
+<meta property="og:updated_time" content="2019-07-10T07:28:56.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网站在线翻译功能">
-<meta name="twitter:description" content="##实现的思路&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等">
+<meta name="twitter:description" content="实现的思路&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;我今天要实现我的网站的翻译功能。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等">
 <meta name="twitter:image" content="e:/信息图片/java.png">
 
 
@@ -307,7 +307,7 @@
       
 
       
-        <p>##实现的思路<br>&ensp;&ensp;&ensp;&ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等<a id="more"></a>习惯的做法就是接入他们的api，但是我想来个不太合情理的，就是使用python做的爬虫来爬取有道翻译的翻译结果，然后再把结果放在我的网页上。虽然是麻烦了点，但是正好能复习一下python。<br>&ensp;&ensp;&ensp;&ensp;爬虫的关键是要设置好访问的浏览器的User-Agent和ip，不然有道识别到是爬虫的话，那就会爬取失败。所以，我的思路是先从我的网站那里获取到访问者的User-Agent和爬取，ip，和要翻译的字词或语句，然后把这些参数传到爬虫的程序里，接着爬取结果，最后把结果返还到我的翻译页面上。<br>&ensp;&ensp;&ensp;&ensp;Java调用python程序得用到运行时(Runtime),关键的语法是<br>&ensp;&ensp;&ensp;&ensp;<font color="red"><strong>Process pro = Runtime.getRuntime().exec(cmd)</strong></font><br><img src="E:\信息图片\java.png"><br><img src="E:\信息图片\python.png"></p>
+        <h2 id="实现的思路"><a href="#实现的思路" class="headerlink" title="实现的思路"></a>实现的思路</h2><p>&ensp;&ensp;&ensp;&ensp;我今天要实现我的网站的翻译功能。<br>&ensp;&ensp;&ensp;&ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等<a id="more"></a>习惯的做法就是接入他们的api，但是我想来个不太合情理的，就是使用python做的爬虫来爬取有道翻译的翻译结果，然后再把结果放在我的网页上。虽然是麻烦了点，但是正好能复习一下python。<br>&ensp;&ensp;&ensp;&ensp;爬虫的关键是要设置好访问的浏览器的User-Agent和ip，不然有道识别到是爬虫的话，那就会爬取失败。所以，我的思路是先从我的网站那里获取到访问者的User-Agent和爬取，ip，和要翻译的字词或语句，然后把这些参数传到爬虫的程序里，接着爬取结果，最后把结果返还到我的翻译页面上。<br>&ensp;&ensp;&ensp;&ensp;Java调用python程序得用到运行时(Runtime),关键的语法是<br>&ensp;&ensp;&ensp;&ensp;<font color="red"><strong>Process pro = Runtime.getRuntime().exec(cmd)</strong></font><br><img src="E:\信息图片\java.png"><br><img src="E:\信息图片\python.png"></p>
 
       
     </div>
@@ -392,8 +392,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -437,6 +446,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现的思路"><span class="nav-number">1.</span> <span class="nav-text">实现的思路</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
