@@ -86,13 +86,10 @@
 <meta property="og:site_name">
 <meta property="og:description" content="实现的思路&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;我今天要实现我的网站的翻译功能。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:/信息图片/java.png">
-<meta property="og:image" content="e:/信息图片/python.png">
-<meta property="og:updated_time" content="2019-07-10T07:28:56.647Z">
+<meta property="og:updated_time" content="2019-07-10T14:19:01.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网站在线翻译功能">
 <meta name="twitter:description" content="实现的思路&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;我今天要实现我的网站的翻译功能。&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等">
-<meta name="twitter:image" content="e:/信息图片/java.png">
 
 
 
@@ -307,7 +304,15 @@
       
 
       
-        <h2 id="实现的思路"><a href="#实现的思路" class="headerlink" title="实现的思路"></a>实现的思路</h2><p>&ensp;&ensp;&ensp;&ensp;我今天要实现我的网站的翻译功能。<br>&ensp;&ensp;&ensp;&ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等<a id="more"></a>习惯的做法就是接入他们的api，但是我想来个不太合情理的，就是使用python做的爬虫来爬取有道翻译的翻译结果，然后再把结果放在我的网页上。虽然是麻烦了点，但是正好能复习一下python。<br>&ensp;&ensp;&ensp;&ensp;爬虫的关键是要设置好访问的浏览器的User-Agent和ip，不然有道识别到是爬虫的话，那就会爬取失败。所以，我的思路是先从我的网站那里获取到访问者的User-Agent和爬取，ip，和要翻译的字词或语句，然后把这些参数传到爬虫的程序里，接着爬取结果，最后把结果返还到我的翻译页面上。<br>&ensp;&ensp;&ensp;&ensp;Java调用python程序得用到运行时(Runtime),关键的语法是<br>&ensp;&ensp;&ensp;&ensp;<font color="red"><strong>Process pro = Runtime.getRuntime().exec(cmd)</strong></font><br><img src="E:\信息图片\java.png"><br><img src="E:\信息图片\python.png"></p>
+        <h2 id="实现的思路"><a href="#实现的思路" class="headerlink" title="实现的思路"></a>实现的思路</h2><p>&ensp;&ensp;&ensp;&ensp;我今天要实现我的网站的翻译功能。<br>&ensp;&ensp;&ensp;&ensp;翻译功能的实现，当然得借助专业的平台了,比如有道翻译，谷歌翻译，百度翻译等等<a id="more"></a>习惯的做法就是接入他们的api，但是我想来个不太合情理的，就是使用python做的爬虫来爬取有道翻译的翻译结果，然后再把结果放在我的网页上。虽然是麻烦了点，但是正好能复习一下python。<br>&ensp;&ensp;&ensp;&ensp;爬虫的关键是要设置好访问的浏览器的User-Agent和ip，不然有道识别到是爬虫的话，那就会爬取失败。所以，我的思路是先从我的网站那里获取到访问者的User-Agent和ip以及和要翻译的字词或语句，然后把这些参数传到爬虫的程序里，接着爬取结果，最后把结果返还到我的翻译页面上。<br>&ensp;&ensp;&ensp;&ensp;Java调用python程序得用到运行时(Runtime),关键的语法是<br>&ensp;&ensp;&ensp;&ensp;<font color="red"><strong>Process pro = Runtime.getRuntime().exec(cmd)</strong></font></p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>&ensp;&ensp;&ensp;&ensp;爬虫很快就做好了，但在用Java调用python程序的时候，遇到了不少问题</p>
+<ul>
+<li>Java对python传参的调用<br>&ensp;&ensp;&ensp;&ensp;静态调用的话，上面说到的Runtime.getRuntime().exec(cmd)中的<font color="red">cmd=”待调用程序的类型(python/c/c++),程序路径”</font>。而传参的调用则是新建一个字符串数组<br>&ensp;&ensp;&ensp;&ensp;<font color="red">String [] arg = new String[]{程序类型,程序路径,参数};</font><br>&ensp;&ensp;&ensp;&ensp;<font color="red">Runtime.getRuntime().exec(arg);</font></li>
+<li>爬虫使用代理失败<br>&ensp;&ensp;&ensp;&ensp;爬虫使用代理能避免服务器拒绝访问，因为每一个ip对服务器的访问是有阀值的。所以为了避免这种情况，爬虫得使用代理。也就是利用他人的ip。我最初的设想是利用访问我的网站的用户的ip，但是在爬取的时候会报错。所以我现在的爬虫是没有使用代理的。对此我想到的解决方案是，在每次要爬取有道翻译的时候，先去代理网站爬取一些能使用的ip，利用这些ip来代理。这个很简单就能实现了</li>
+<li>爬虫的模块导入出错<br>&ensp;&ensp;&ensp;&ensp;为了更好地调用python程序，我重写了爬虫的代码，但是由于使用的是notepad++来写得代码，这个软件没有代码的错误提示，所以我把urllib.request写成了urllib.requests,于是就花了好几个小时来检查。:cry:</li>
+<li>总结<br>&ensp;&ensp;&ensp;&ensp;总得来说利用爬虫来实现网站的翻译还是很简单的，因为不用看api文档。还有就是没有任何的费用，代码量也少。但从长远来看，还是得用api接口来实现。毕竟爬虫有盗窃的嫌疑。</li>
+<li>收获<br>&ensp;&ensp;&ensp;&ensp;今天很好地复习了python。一个学期没用python，还是有点手生的。还有python真的挺适合用来做脚本的哈</li>
+</ul>
 
       
     </div>
@@ -456,7 +461,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现的思路"><span class="nav-number">1.</span> <span class="nav-text">实现的思路</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现的思路"><span class="nav-number">1.</span> <span class="nav-text">实现的思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遇到的问题"><span class="nav-number">1.1.</span> <span class="nav-text">遇到的问题</span></a></li></ol></li></ol></div>
             
 
           </div>
