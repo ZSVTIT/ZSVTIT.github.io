@@ -252,6 +252,248 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/指令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhengSheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/指令/" itemprop="url">指令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T23:08:26+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>title: 指令<br>date: 2019-08-08 22:57:17<br>tags:<br>categories: Linux</p>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><h3 id="ls系列"><a href="#ls系列" class="headerlink" title="ls系列"></a>ls系列</h3><ul>
+<li><code>ls</code>//显示不隐藏的文件和文件夹</li>
+<li><code>ls -a</code> //显示当前目录下的所以文件及文件夹（包含隐藏的.和..等</li>
+<li><code>ls -l</code> //显示不隐藏的文件及文件夹的详细信息</li>
+<li><code>ls -la</code> (等于ls -l -a，也等于ll)</li>
+</ul>
+<hr>
+<h3 id="mkdir系列"><a href="#mkdir系列" class="headerlink" title="mkdir系列"></a>mkdir系列</h3><ul>
+<li><code>mkdir  directory</code> //创建新的目录</li>
+<li><code>mkdir -p fatherDirectory sonDirectory</code> //父目录不存在的情况下，先生成父目录，也就是说可以一下生成<strong>多个</strong>目录</li>
+</ul>
+<hr>
+<h3 id="cd系列"><a href="#cd系列" class="headerlink" title="cd系列"></a>cd系列</h3><ul>
+<li><code>cd directory</code> //切换到指定的目录</li>
+<li>单独一个<code>cd</code> //回到当前用户的主目录(就是回到了home)</li>
+</ul>
+<hr>
+<h3 id="touch系列"><a href="#touch系列" class="headerlink" title="touch系列"></a>touch系列</h3><ul>
+<li><code>touch file</code> //生成一个新的空文件</li>
+</ul>
+<hr>
+<h3 id="echo系列"><a href="#echo系列" class="headerlink" title="echo系列"></a>echo系列</h3><ul>
+<li><code>echo &quot;String&quot;</code> //在屏幕上输出字符串String</li>
+<li><code>echo “String”</code>&gt;&gt;文件名.格式 //把“String”写进文件里面（新建文件的形式）</li>
+</ul>
+<hr>
+<h3 id="cp系列"><a href="#cp系列" class="headerlink" title="cp系列"></a>cp系列</h3><ul>
+<li><code>cp file1 file2</code> //将文件file1备份为文件file2（拷贝）</li>
+<li><code>cp file ...directory</code> //将file等文件复制到目录directory下</li>
+</ul>
+<hr>
+<h3 id="cat系列"><a href="#cat系列" class="headerlink" title="cat系列"></a>cat系列</h3><ul>
+<li><code>cat file</code> //显示file的内容</li>
+<li><code>cat file1 file2</code> //依次显示file1和file2的内容</li>
+<li><code>cat &gt; file</code> //新建文件file，并且马上从键盘输入内容，按<strong>Ctrl+D</strong>表示输入完成，回车保存退出。</li>
+<li><code>cat file1 file 2 &gt; file3</code> //将file1和file2的内容<strong>合并</strong>成新的文件file3，同时file1和file2依旧存在。</li>
+</ul>
+<hr>
+<h3 id="find系列"><a href="#find系列" class="headerlink" title="find系列"></a>find系列</h3><ul>
+<li>find file//在当前目录下查找文件</li>
+</ul>
+<hr>
+<h3 id="rm系列"><a href="#rm系列" class="headerlink" title="rm系列"></a>rm系列</h3><p>   <strong>注意</strong>：通过<code>rm</code>删除操作，无法恢复。</p>
+<ul>
+<li><code>rm file</code>//删除文件file</li>
+<li><code>rm -rf directory</code> //删除目录directory，不管里面有没有文件</li>
+</ul>
+<h3 id="mv系列"><a href="#mv系列" class="headerlink" title="mv系列"></a>mv系列</h3><ul>
+<li><code>mv file driectory</code> //将文件file从当前目录移动到目录directory下</li>
+</ul>
+<hr>
+<h3 id="tree系列"><a href="#tree系列" class="headerlink" title="tree系列"></a>tree系列</h3><p>   <strong>注意</strong>：要先安装<code>tree</code>，命令为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install tree</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>以树状图列出当前目录的内容</li>
+</ul>
+<hr>
+<h3 id="grep系列"><a href="#grep系列" class="headerlink" title="grep系列"></a>grep系列</h3><ul>
+<li><code>grep</code> String/char file //从指定的文件里查找指定的字符或者字符串，字符和字符串都不出<code>&#39;&#39;或”“</code></li>
+</ul>
+<hr>
+<h3 id="文件解压系列"><a href="#文件解压系列" class="headerlink" title="文件解压系列"></a>文件解压系列</h3><ul>
+<li><code>zip</code>格式：<strong><code>unzip file</code></strong></li>
+</ul>
+<hr>
+<h3 id="vi-vim系列"><a href="#vi-vim系列" class="headerlink" title="vi/vim系列"></a>vi/vim系列</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><pre><code>就是文本编辑器。`vim`是`vi`的升级版</code></pre><h4 id="vi-vim键盘图"><a href="#vi-vim键盘图" class="headerlink" title="vi/vim键盘图"></a>vi/vim键盘图</h4><p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt></p>
+<h4 id="vi-vim的使用"><a href="#vi-vim的使用" class="headerlink" title="vi/vim的使用"></a>vi/vim的使用</h4><pre><code>基本上vi/vim 共分为三种模式，分别是命令模式（Command mode），输入模式（Insert mode）和底线命令模式（Last line mode）。 这三种模式的作用分别是：</code></pre><ul>
+<li><p>命令模式</p>
+<p>用户刚刚启动vi/vim，便进入了命令模式。此时敲击键盘动作会被识别为<strong>命令</strong>，而非输入字符。以下是几个常用的几个命令。</p>
+<ul>
+<li><strong>i</strong>：切换到输入模式。</li>
+<li><strong>x</strong>：删除当前光标所在的字符。</li>
+<li><code>:</code>：切换到底线命令模式，就在最低一层输入命令。</li>
+</ul>
+</li>
+<li><p>输入模式</p>
+<p>同<code>windows</code>的输入</p>
+</li>
+<li><p>底线命令模式</p>
+<p>在命令模式下按下<code>:</code>(英文的冒号)就能进入底线命令模式了。</p>
+<p>在底线命令模式中，基本的命令有：</p>
+<ul>
+<li><strong>q</strong>：退出程序。</li>
+<li><strong>w</strong>：保存文件。</li>
+<li><strong>wq</strong>：保存文件并退出</li>
+</ul>
+</li>
+</ul>
+<p><strong>vim 文件名.格式</strong>：就是用<code>vim/vi</code>打开了指定文件。</p>
+<hr>
+<h3 id="nano"><a href="#nano" class="headerlink" title="nano"></a>nano</h3><h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><pre><code>`nano`是一个字符端的文本编辑器，有点像`DOS`下的`editor`。它比` vi/vim` 要简单得多，比较适合 Linux 初学者使用。        </code></pre><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><ul>
+<li>保存：<code>Ctrl + O</code></li>
+<li>搜索：<code>Ctrl + w</code></li>
+<li>上一页：<code>ctrl + y</code></li>
+<li>下一页：<code>ctrl + v</code></li>
+<li>退出：<code>ctrl + x</code></li>
+</ul>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/12/下一步的学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -912,12 +1154,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
             
 
             
