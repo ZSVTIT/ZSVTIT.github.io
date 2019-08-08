@@ -1763,10 +1763,10 @@ pre .javascript .function {
   height: auto;
   border: 1px solid #eee;
 /* 头像圆形 */
-  border-radius: 80px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  box-shadow: inset 0 -1px 0 #333 sf;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  box-shadow: inset 0 -2px 0 #333 sf;
 /* 鼠标经过头像旋转时间 */
   -webkit-transition: -webkit-transform 1s ease-out;
   -moz-transition: -moz-transform 1s ease-out;
@@ -1853,7 +1853,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #81ffbf;
+  background: #ffff7d;
 }
 .links-of-blogroll {
   font-size: 13px;
