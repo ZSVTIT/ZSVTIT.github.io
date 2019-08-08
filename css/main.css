@@ -1763,9 +1763,9 @@ pre .javascript .function {
   height: auto;
   border: 1px solid #eee;
 /* 头像圆形 */
-  border-radius: 140px;
-  -webkit-border-radius: 140px;
-  -moz-border-radius: 140px;
+  border-radius: 180px;
+  -webkit-border-radius: 180px;
+  -moz-border-radius: 180px;
   box-shadow: inset 0 -2px 0 #333 sf;
 /* 鼠标经过头像旋转时间 */
   -webkit-transition: -webkit-transform 1s ease-out;
@@ -1853,7 +1853,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff2d11;
+  background: #58ff47;
 }
 .links-of-blogroll {
   font-size: 13px;
