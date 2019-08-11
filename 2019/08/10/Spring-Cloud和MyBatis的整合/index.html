@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Spring Cloud和MyBatis的整合初识MyBatisMyBatis 是支持定制化SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，&amp;lt;!-- more --&amp;gt;将接口和 Java 的 POJOs(Plain Old Java Objects">
+<meta name="description" content="Spring Cloud和MyBatis的整合初识MyBatis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Cloud和MyBatis的整合">
 <meta property="og:url" content="http://yoursite.com/2019/08/10/Spring-Cloud和MyBatis的整合/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Spring Cloud和MyBatis的整合初识MyBatisMyBatis 是支持定制化SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，&amp;lt;!-- more --&amp;gt;将接口和 Java 的 POJOs(Plain Old Java Objects">
+<meta property="og:description" content="Spring Cloud和MyBatis的整合初识MyBatis">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.w3cschool.cn/attachments/image/20170807/1502093784622523.png">
 <meta property="og:image" content="e:%5Cblog%5Csource_posts%5CSpring-Cloud%E5%92%8CMyBatis%E7%9A%84%E6%95%B4%E5%90%88%5C%E6%97%A7%E9%A1%B9%E7%9B%AE%E5%9B%BE.PNG">
-<meta property="og:updated_time" content="2019-08-10T15:18:51.874Z">
+<meta property="og:updated_time" content="2019-08-11T08:19:17.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Cloud和MyBatis的整合">
-<meta name="twitter:description" content="Spring Cloud和MyBatis的整合初识MyBatisMyBatis 是支持定制化SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，&amp;lt;!-- more --&amp;gt;将接口和 Java 的 POJOs(Plain Old Java Objects">
+<meta name="twitter:description" content="Spring Cloud和MyBatis的整合初识MyBatis">
 <meta name="twitter:image" content="https://www.w3cschool.cn/attachments/image/20170807/1502093784622523.png">
 
 
@@ -349,7 +349,9 @@
       
 
       
-        <h1 id="Spring-Cloud和MyBatis的整合"><a href="#Spring-Cloud和MyBatis的整合" class="headerlink" title="Spring Cloud和MyBatis的整合"></a>Spring Cloud和MyBatis的整合</h1><h3 id="初识MyBatis"><a href="#初识MyBatis" class="headerlink" title="初识MyBatis"></a>初识MyBatis</h3><pre><code>MyBatis 是支持定制化SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，&lt;!-- more --&gt;将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。（一句话就是好牛逼）</code></pre><p><img src="https://www.w3cschool.cn/attachments/image/20170807/1502093784622523.png" alt></p>
+        <h1 id="Spring-Cloud和MyBatis的整合"><a href="#Spring-Cloud和MyBatis的整合" class="headerlink" title="Spring Cloud和MyBatis的整合"></a>Spring Cloud和MyBatis的整合</h1><h3 id="初识MyBatis"><a href="#初识MyBatis" class="headerlink" title="初识MyBatis"></a>初识MyBatis</h3><a id="more"></a>
+
+<pre><code>MyBatis 是支持定制化SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以对配置和原生Map使用简单的 XML 或注解，&lt;!-- more --&gt;将接口和 Java 的 POJOs(Plain Old Java Objects,普通的 Java对象)映射成数据库中的记录。（一句话就是好牛逼）</code></pre><p><img src="https://www.w3cschool.cn/attachments/image/20170807/1502093784622523.png" alt></p>
 <h3 id="整合Druid"><a href="#整合Druid" class="headerlink" title="整合Druid"></a>整合Druid</h3><pre><code>简介：Druid是目前最好的数据库链接池，阿里出品。</code></pre><ul>
 <li><p>引入依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.10<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
