@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="概述APT(Advanced Packaging Tool) 是 Debian/Ubuntu 类 Linux 系统中的软件包管理程序, 使用它可以找到想要的软件包, 而且安装、卸载、更新都很简便；也可以用来对 Ubuntu 进行升级; APT 的源文件为 `/etc/apt/` 目录下的 `sources.list` 文件。">
+<meta name="description" content="Bootstrap学习Bootstrap项目结构 Bootstrap中的HTML文件模版1234567891011121314151617181920212223242526&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;title&amp;gt;Bootstrap 模板&amp;lt;/title&amp;gt;    &amp;lt;meta charset=&quot;UTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件包管理">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/软件包管理/index.html">
+<meta property="og:title" content="Bootstrap学习">
+<meta property="og:url" content="http://yoursite.com/2019/08/16/Bootstrap学习/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="概述APT(Advanced Packaging Tool) 是 Debian/Ubuntu 类 Linux 系统中的软件包管理程序, 使用它可以找到想要的软件包, 而且安装、卸载、更新都很简便；也可以用来对 Ubuntu 进行升级; APT 的源文件为 `/etc/apt/` 目录下的 `sources.list` 文件。">
+<meta property="og:description" content="Bootstrap学习Bootstrap项目结构 Bootstrap中的HTML文件模版1234567891011121314151617181920212223242526&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;title&amp;gt;Bootstrap 模板&amp;lt;/title&amp;gt;    &amp;lt;meta charset=&quot;UTF">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-08T15:58:00.021Z">
+<meta property="og:image" content="e:%5Cblog%5Csource_posts%5CBootstrap%E5%AD%A6%E4%B9%A0%5CBootstrap.PNG">
+<meta property="og:updated_time" content="2019-08-16T10:06:58.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件包管理">
-<meta name="twitter:description" content="概述APT(Advanced Packaging Tool) 是 Debian/Ubuntu 类 Linux 系统中的软件包管理程序, 使用它可以找到想要的软件包, 而且安装、卸载、更新都很简便；也可以用来对 Ubuntu 进行升级; APT 的源文件为 `/etc/apt/` 目录下的 `sources.list` 文件。">
+<meta name="twitter:title" content="Bootstrap学习">
+<meta name="twitter:description" content="Bootstrap学习Bootstrap项目结构 Bootstrap中的HTML文件模版1234567891011121314151617181920212223242526&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;title&amp;gt;Bootstrap 模板&amp;lt;/title&amp;gt;    &amp;lt;meta charset=&quot;UTF">
+<meta name="twitter:image" content="e:%5Cblog%5Csource_posts%5CBootstrap%E5%AD%A6%E4%B9%A0%5CBootstrap.PNG">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/08/软件包管理/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/16/Bootstrap学习/">
 
 
 
 
 
-  <title>软件包管理 | 学习笔记</title>
+  <title>Bootstrap学习 | 学习笔记</title>
   
 
 
@@ -252,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/软件包管理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/Bootstrap学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhengSheng">
@@ -269,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">软件包管理</h1>
+          <h1 class="post-title" itemprop="name headline">Bootstrap学习</h1>
         
 
         <div class="post-meta">
@@ -281,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T23:44:18+08:00">
-                2019-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-16T17:56:18+08:00">
+                2019-08-16
               </time>
             
 
@@ -304,8 +306,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Bootstrap/" itemprop="url" rel="index">
+                    <span itemprop="name">Bootstrap</span>
                   </a>
                 </span>
 
@@ -346,51 +348,8 @@
       
 
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><pre><code>APT(Advanced Packaging Tool) 是 Debian/Ubuntu 类 Linux 系统中的软件包管理程序, 使用它可以找到想要的软件包, 而且安装、卸载、更新都很简便；也可以用来对 Ubuntu 进行升级; APT 的源文件为 `/etc/apt/` 目录下的 `sources.list` 文件。</code></pre><hr>
-<a id="more"></a>
-
-<h3 id="修改数据源"><a href="#修改数据源" class="headerlink" title="修改数据源"></a>修改数据源</h3><pre><code>由于国内的网络环境问题，我们需要将 Ubuntu 的数据源修改为国内数据源，操作步骤如下：</code></pre><ul>
-<li><h4 id="查看系统版本"><a href="#查看系统版本" class="headerlink" title="查看系统版本"></a>查看系统版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 16.04.1 LTS</span><br><span class="line">Release:        16.04</span><br><span class="line">Codename:       xenial</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：<code>Codename</code>是Ubuntu系统的名称，下面修改数据源的操作要用到它。</p>
-</li>
-<li><p>使用<code>vi/vim</code>打开<code>/etc/apt/sources.list</code>，删除全部内容并修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新数据源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h3 id="常用的APT命令"><a href="#常用的APT命令" class="headerlink" title="常用的APT命令"></a>常用的APT命令</h3><ul>
-<li><p>安装软件包：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install packagename</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除软件包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get remove packagename</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新软件包列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>升级系统（别用）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除包及配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get remove package --purge</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装相关的编译环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get build-dep package</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>清理无用的包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get clean &amp;&amp; apt-get autoclean</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-
+        <h1 id="Bootstrap学习"><a href="#Bootstrap学习" class="headerlink" title="Bootstrap学习"></a>Bootstrap学习</h1><h3 id="Bootstrap项目结构"><a href="#Bootstrap项目结构" class="headerlink" title="Bootstrap项目结构"></a>Bootstrap项目结构</h3><p><img src="E:%5Cblog%5Csource_posts%5CBootstrap%E5%AD%A6%E4%B9%A0%5CBootstrap.PNG" alt></p>
+<h3 id="Bootstrap中的HTML文件模版"><a href="#Bootstrap中的HTML文件模版" class="headerlink" title="Bootstrap中的HTML文件模版"></a>Bootstrap中的HTML文件模版</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Bootstrap 模板<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--自适应屏幕--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入 Bootstrap --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://maxcdn.bootstrapcdn.com/bootstrap/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;![endif]--&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://code.jquery.com/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 包括所有已编译的插件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, world!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -414,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/08/指令/" rel="next" title="指令">
-                <i class="fa fa-chevron-left"></i> 指令
+              <a href="/2019/08/16/模态框-Modal/" rel="next" title="模态框(Modal))">
+                <i class="fa fa-chevron-left"></i> 模态框(Modal))
               </a>
             
           </div>
@@ -423,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/10/Spring-Cloud和MyBatis的整合/" rel="prev" title="Spring Cloud和MyBatis的整合">
-                Spring Cloud和MyBatis的整合 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -551,7 +506,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改数据源"><span class="nav-number">2.</span> <span class="nav-text">修改数据源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看系统版本"><span class="nav-number">2.1.</span> <span class="nav-text">查看系统版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的APT命令"><span class="nav-number">3.</span> <span class="nav-text">常用的APT命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bootstrap学习"><span class="nav-number">1.</span> <span class="nav-text">Bootstrap学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootstrap项目结构"><span class="nav-number">1.0.1.</span> <span class="nav-text">Bootstrap项目结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bootstrap中的HTML文件模版"><span class="nav-number">1.0.2.</span> <span class="nav-text">Bootstrap中的HTML文件模版</span></a></li></ol></li></ol></div>
             
 
           </div>
