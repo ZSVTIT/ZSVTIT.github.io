@@ -344,26 +344,14 @@
 
       
         
-          
-            <h1 id="Request-method-‘post’-not-supported"><a href="#Request-method-‘post’-not-supported" class="headerlink" title="Request method ‘post’ not supported"></a>Request method ‘post’ not supported</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>​            如图，我设置的请求方式是<strong>GET</strong>，</p>
-<p><img src="E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5Cpost%E9%97%AE%E9%A2%982.png" alt></p>
-<p>​            访问的时候去提示请求方式<strong>POST</strong>不允许</p>
-<p><img src="E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5CPost%E9%97%AE%E9%A2%981.png" alt></p>
-<hr>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​             如图，把把圈出来的<code>@PathVariable</code>改为<code>@RequestParam</code></p>
-<p><img src="E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5Cpost%E9%97%AE%E9%A2%983.png" alt></p>
-<hr>
-<h3 id="原因所在"><a href="#原因所在" class="headerlink" title="原因所在"></a>原因所在</h3><p>​             当要传递的参数都使用<code>@PathVariable</code>的话，那么，就会使用<strong>POST</strong>请求方式。</p>
-<hr>
-<h3 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h3><p>​             在<code>Spring MVC</code>中，两者的作用都是将<code>request</code>中的参数的值绑定到<code>Controller</code>中的方法去，只是两者的<code>url</code>写法不同。</p>
-<p>​             使用<code>PathVariable</code>时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ip:port/path/参数值</span><br></pre></td></tr></table></figure>
-
-<p>​             使用<code>@RequestParam</code>时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ip:port/path?参数名=参数值</span><br></pre></td></tr></table></figure>
-
-
-          
+          <h1 id="Request-method-‘post’-not-supported"><a href="#Request-method-‘post’-not-supported" class="headerlink" title="Request method ‘post’ not supported"></a>Request method ‘post’ not supported</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/17/Request-method-post-not-supported/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
