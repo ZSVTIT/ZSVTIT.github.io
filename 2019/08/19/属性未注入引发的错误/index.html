@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="属性未注入引发的错问题描述&amp;emsp;&amp;emsp;在初始化数据表格的时候，文章服务消费者出现了以下的错误  &amp;emsp;&amp;emsp;提示内容的大概就是我的sql语法错误了。看到这，我就郁闷了，我在这里使用的是mybatis，具体的sql语句不是我写的啊，我重启了IDEA，因为之前有过类似的错误，重启就解决了。但重启后错误依旧。我回到文章的服务提供者那里，发现那也报错了，这里的错误才是源头。其内容如">
+<meta name="description" content="属性未注入引发的错问题描述">
 <meta property="og:type" content="article">
 <meta property="og:title" content="属性未注入引发的错误">
 <meta property="og:url" content="http://yoursite.com/2019/08/19/属性未注入引发的错误/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="属性未注入引发的错问题描述&amp;emsp;&amp;emsp;在初始化数据表格的时候，文章服务消费者出现了以下的错误  &amp;emsp;&amp;emsp;提示内容的大概就是我的sql语法错误了。看到这，我就郁闷了，我在这里使用的是mybatis，具体的sql语句不是我写的啊，我重启了IDEA，因为之前有过类似的错误，重启就解决了。但重启后错误依旧。我回到文章的服务提供者那里，发现那也报错了，这里的错误才是源头。其内容如">
+<meta property="og:description" content="属性未注入引发的错问题描述">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="e:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror1.PNG">
 <meta property="og:image" content="e:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror2.png">
 <meta property="og:image" content="e:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror3.PNG">
-<meta property="og:updated_time" content="2019-08-19T03:37:30.878Z">
+<meta property="og:updated_time" content="2019-08-19T03:41:52.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="属性未注入引发的错误">
-<meta name="twitter:description" content="属性未注入引发的错问题描述&amp;emsp;&amp;emsp;在初始化数据表格的时候，文章服务消费者出现了以下的错误  &amp;emsp;&amp;emsp;提示内容的大概就是我的sql语法错误了。看到这，我就郁闷了，我在这里使用的是mybatis，具体的sql语句不是我写的啊，我重启了IDEA，因为之前有过类似的错误，重启就解决了。但重启后错误依旧。我回到文章的服务提供者那里，发现那也报错了，这里的错误才是源头。其内容如">
+<meta name="twitter:description" content="属性未注入引发的错问题描述">
 <meta name="twitter:image" content="e:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror1.PNG">
 
 
@@ -350,7 +350,9 @@
       
 
       
-        <h1 id="属性未注入引发的错"><a href="#属性未注入引发的错" class="headerlink" title="属性未注入引发的错"></a>属性未注入引发的错</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>&emsp;&emsp;在初始化数据表格的时候，文章服务消费者出现了以下的错误</p>
+        <h1 id="属性未注入引发的错"><a href="#属性未注入引发的错" class="headerlink" title="属性未注入引发的错"></a>属性未注入引发的错</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><a id="more"></a>
+
+<p>&emsp;&emsp;在初始化数据表格的时候，文章服务消费者出现了以下的错误</p>
 <p><img src="E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror1.PNG" alt></p>
 <p>&emsp;&emsp;提示内容的大概就是我的<code>sql</code>语法错误了。看到这，我就郁闷了，我在这里使用的是<code>mybatis</code>，具体的<code>sql</code>语句不是我写的啊，我重启了<code>IDEA</code>，因为之前有过类似的错误，重启就解决了。但重启后错误依旧。我回到文章的服务提供者那里，发现那也报错了，这里的错误才是源头。其内容如下：</p>
 <p><img src="E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror2.png" alt></p>
