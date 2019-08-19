@@ -252,6 +252,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/属性未注入引发的错误/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhengSheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/19/属性未注入引发的错误/" itemprop="url">属性未注入引发的错误</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T11:33:25+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/遇到的坑/" itemprop="url" rel="index">
+                    <span itemprop="name">遇到的坑</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="属性未注入引发的错"><a href="#属性未注入引发的错" class="headerlink" title="属性未注入引发的错"></a>属性未注入引发的错</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>&emsp;&emsp;在初始化数据表格的时候，文章服务消费者出现了以下的错误</p>
+<p><img src="E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror1.PNG" alt></p>
+<p>&emsp;&emsp;提示内容的大概就是我的<code>sql</code>语法错误了。看到这，我就郁闷了，我在这里使用的是<code>mybatis</code>，具体的<code>sql</code>语句不是我写的啊，我重启了<code>IDEA</code>，因为之前有过类似的错误，重启就解决了。但重启后错误依旧。我回到文章的服务提供者那里，发现那也报错了，这里的错误才是源头。其内容如下：</p>
+<p><img src="E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror2.png" alt></p>
+<hr>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>&emsp;&emsp;在文章服务提供者的<code>PostsApplication</code>(入口类)中，扩大要扫描的包的范围（即在注解<code>@SpringBootApplication</code>后面加上<code>(scanBasePackages = &quot;com.zs.my.book.web&quot;)</code>）。</p>
+<p><img src="E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror3.PNG" alt></p>
+<hr>
+<h3 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h3><p>&emsp;&emsp;在<code>SpringCloud</code>中默认的扫描范围是入口类（<code>xxxApplication</code>)所在的包及其子包，果需要扫描主类当前包外的其他包，就得使用<code>baseBasePackages</code>了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/开发中使用到的注解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1557,154 +1707,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/真正完成了在线翻译功能/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ZhengSheng">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学习笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/11/真正完成了在线翻译功能/" itemprop="url">真正完成了在线翻译功能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T19:51:48+08:00">
-                2019-07-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目/" itemprop="url" rel="index">
-                    <span itemprop="name">项目</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="今天做了啥"><a href="#今天做了啥" class="headerlink" title="今天做了啥"></a>今天做了啥</h2><p>昨晚把在线翻译的功能实现了</p>
-<p>为了更好地实现人机交互</p>
-<p>我今天就把前端给实现了
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/11/真正完成了在线翻译功能/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1757,7 +1759,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
