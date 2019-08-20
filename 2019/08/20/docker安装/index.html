@@ -79,23 +79,17 @@
 
 
 
-<meta name="description" content="今天做了啥昨晚把在线翻译的功能实现了 为了更好地实现人机交互 我今天就把前端给实现了">
+<meta name="description" content="Docker安装概述">
 <meta property="og:type" content="article">
-<meta property="og:title" content="真正完成了在线翻译功能">
-<meta property="og:url" content="http://yoursite.com/2019/07/11/真正完成了在线翻译功能/index.html">
+<meta property="og:title" content="docker安装">
+<meta property="og:url" content="http://yoursite.com/2019/08/20/docker安装/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="今天做了啥昨晚把在线翻译的功能实现了 为了更好地实现人机交互 我今天就把前端给实现了">
+<meta property="og:description" content="Docker安装概述">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/.com//ypdd.png">
-<meta property="og:image" content="http://yoursite.com/.com//my.png">
-<meta property="og:image" content="http://yoursite.com/.com//title.png">
-<meta property="og:image" content="http://yoursite.com/.com//C_E.png">
-<meta property="og:image" content="http://yoursite.com/.com//E_C.png">
-<meta property="og:updated_time" content="2019-08-11T02:36:00.689Z">
+<meta property="og:updated_time" content="2019-08-20T13:32:57.398Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="真正完成了在线翻译功能">
-<meta name="twitter:description" content="今天做了啥昨晚把在线翻译的功能实现了 为了更好地实现人机交互 我今天就把前端给实现了">
-<meta name="twitter:image" content="http://yoursite.com/.com//ypdd.png">
+<meta name="twitter:title" content="docker安装">
+<meta name="twitter:description" content="Docker安装概述">
 
 
 
@@ -125,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/11/真正完成了在线翻译功能/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/20/docker安装/">
 
 
 
 
 
-  <title>真正完成了在线翻译功能 | 学习笔记</title>
+  <title>docker安装 | 学习笔记</title>
   
 
 
@@ -258,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/真正完成了在线翻译功能/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/docker安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhengSheng">
@@ -275,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">真正完成了在线翻译功能</h1>
+          <h1 class="post-title" itemprop="name headline">docker安装</h1>
         
 
         <div class="post-meta">
@@ -287,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-11T19:51:48+08:00">
-                2019-07-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-20T21:31:47+08:00">
+                2019-08-20
               </time>
             
 
@@ -310,8 +304,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目/" itemprop="url" rel="index">
-                    <span itemprop="name">项目</span>
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
                   </a>
                 </span>
 
@@ -352,63 +346,67 @@
       
 
       
-        <h2 id="今天做了啥"><a href="#今天做了啥" class="headerlink" title="今天做了啥"></a>今天做了啥</h2><p>昨晚把在线翻译的功能实现了</p>
-<p>为了更好地实现人机交互</p>
-<p>我今天就把前端给实现了<a id="more"></a></p>
-<p>因为我实在没有什么艺术细胞</p>
-<p>所以我在盗窃了有道翻译的功能之后</p>
-<p>又盗窃了它的网页样式(其实只是借鉴啦)</p>
-<p>虽说浏览器可以查看网页的html和css内容</p>
-<p>但自命天高的我</p>
-<p>还是根据有道翻译的样子</p>
-<p>自己把html和css文件做出来了</p>
-<p>对比一下吧<br><img src="/.com//ypdd.png" alt="有道翻译的样子" title="有道翻译的样子"></p>
-<p><img src="/.com//my.png" alt="我的翻译网页的样子" title="我的翻译网页的样子"></p>
-<p>好像就一点点像吧</p>
-<p>都很简约</p>
-<h2 id="功能展示"><a href="#功能展示" class="headerlink" title="功能展示"></a>功能展示</h2><p>前端和功能的实现都做好了</p>
-<p>接下来的就是功能的演示了</p>
-<p>我先从网上截取一段新闻的内容</p>
-<p><img src="/.com//title.png" alt></p>
-<p>然后在我的网页上翻译成英文</p>
-<p><img src="/.com//C_E.png" alt></p>
-<p>然后把翻译的英文在翻译成中文</p>
-<p><img src="/.com//E_C.png" alt></p>
-<p>从文章结果来看</p>
-<p>使用爬虫得到的翻译和直接在有道上的翻译</p>
-<p>还是有所差别</p>
-<p>这可能是在获取文章输入的时候</p>
-<p>数据缺失了</p>
-<p>所以今后还是得接入有道的api</p>
-<p>虽说文章翻译不完美</p>
-<p>但是在单词和短句的翻译</p>
-<p>使用爬虫得到的翻译和直接上有道的翻译是一样的</p>
-<p>所以我暂时不会取消使用爬虫来获取翻译</p>
-<h2 id="功能实现的依赖"><a href="#功能实现的依赖" class="headerlink" title="功能实现的依赖"></a>功能实现的依赖</h2><p>其实实现网页翻译的功能挺简单的</p>
-<p>除去html和css之外</p>
-<p>用到的东西也不多</p>
-<ol>
-<li>爬虫—利用爬虫来盗窃有道翻译的翻译功能，这是网页翻译的核心</li>
-<li>异步刷新—为了用户有更好的体验，所以采用了异步刷新。那就利用了Ajax,而ajax的实现又是利用了jQuery</li>
-<li>Java调用python—因为爬虫使用python写的，所以就得利用Java来调用python程序。这其中的关键就是Runtime(运行时)已经流的使用</li>
-</ol>
-<h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ol>
-<li><p>最大的收获就是懂得了怎么使用Java来调用Python,Python的语法简单，今后可以多点尝试用python写脚本，然后再用Java来调用(想想就兴奋！！！)</p>
-</li>
-<li><p>复习了Python的使用</p>
-</li>
-<li><p>把css和js也很好地复习了，也复习js和jquery在设置标签属性和赋值时各自的语法<br>js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById().innetext=<span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h1><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><a id="more"></a>
 
-<p>jquery</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#text"</span>).val(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;docker是为了解决传统虚拟环境的短板而新兴的技术。</p>
+<hr>
+<h3 id="在linux上面安装Docker"><a href="#在linux上面安装Docker" class="headerlink" title="在linux上面安装Docker"></a>在linux上面安装Docker</h3><p>&emsp;&emsp;依次输入下面的指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL get.docker.com -o get-docker.sh</span><br><span class="line"></span><br><span class="line">sudo sh get-docker.sh --mirror Aliyun</span><br><span class="line"></span><br><span class="line">sudo systemctl enable docker</span><br><span class="line"></span><br><span class="line">sudo systemctl start docker</span><br><span class="line"></span><br><span class="line">sudo groupadd docker</span><br><span class="line"></span><br><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
 
+<p>&emsp;&emsp;退出当前终端并重新登录，进行如下测试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;出现下面的内容就是成功了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://cloud.docker.com/</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="docker镜像加速器"><a href="#docker镜像加速器" class="headerlink" title="docker镜像加速器"></a>docker镜像加速器</h3><p>&emsp;&emsp;在<code>/etc/docker/daemon.json</code>（daemon.json是自己建的）中增加一下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [</span><br><span class="line">    <span class="string">"https://registry.docker-cn.com"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;之后重新启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;检查加速器是否生效，在命令行中执行<code>docker info</code>，如果从结果中看到如下内容，说明配置成功了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Registry Mirrors:</span><br><span class="line"> https://registry.docker-cn.com/</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h3><p>&emsp;&emsp;从Docker镜像仓库获取镜像的命令是<code>docker pull</code>。命令格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull [选项] [Docker Registry 地址[端口号]/]仓库名[:标签]</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu:16.04</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;上面的命令中没有给出Docker镜像仓库地址，那么就会从Docker Hub处获取镜像。镜像名为<code>ubuntu:16.04</code>,所以将会获取官方镜像的<code>library/ubuntu</code>仓库中标签为<code>16.04</code>的镜像。</p>
+<hr>
+<h3 id="镜像的运行"><a href="#镜像的运行" class="headerlink" title="镜像的运行"></a>镜像的运行</h3><p>&emsp;&emsp;在命令行中输入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --rm \</span><br><span class="line">ubuntu:16.04 \</span><br><span class="line">bash</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;这样的话，<code>docker</code>就启动了<code>ubuntu</code>镜像。（相当于我们进入了新的linux虚拟机）</p>
+<p>&emsp;&emsp;<strong>参数说明</strong></p>
+<ul>
+<li><p><code>docker run</code>：运行<code>docker</code>容器的命令。</p>
 </li>
-</ol>
-<h2 id="接下来的任务"><a href="#接下来的任务" class="headerlink" title="接下来的任务"></a>接下来的任务</h2><p>学习Spring框架</p>
-<p>因为我的网页上有论坛部分</p>
-<p>所以得学框架然后来搭建我的论坛</p>
-<p>加油！I can do it!</p>
+<li><p><code>-it</code>：这是两个参数的组合。</p>
+<ul>
+<li><code>-i</code>：交互式操作。</li>
+<li><code>-t</code>：终端。</li>
+</ul>
+<p>我们打算进入<code>base</code>执行一些命令并查看返回结果，因此我们需要交互式终端。</p>
+</li>
+<li><p><code>--rm</code>：这是说容器退出后随之将其删除。默认情况下，为了排障需求，退出的容器并不会立即删除，除非手动 <code>docker rm</code>。我们这里只是随便执行个命令，看看结果，不需要排障和保留结果，因此使用 <code>--rm</code> 可以避免浪费空间。</p>
+</li>
+<li><p><code>ubuntu:16.04</code>：这是指使用<code>ubuntu</code>镜像为基础来启动容器。</p>
+</li>
+<li><p><code>bash</code>：这是放在景象名后的<strong>命令</strong>，这里我们希望有个交互式的<code>Shell</code>，因此用得是<code>bash</code>。</p>
+</li>
+</ul>
+<hr>
+<h3 id="退出镜像"><a href="#退出镜像" class="headerlink" title="退出镜像"></a>退出镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi IMAGE ID/REPOSITORY</span><br></pre></td></tr></table></figure>
+
+<hr>
 
       
     </div>
@@ -433,8 +431,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/10/网站在线翻译功能/" rel="next" title="网站在线翻译功能">
-                <i class="fa fa-chevron-left"></i> 网站在线翻译功能
+              <a href="/2019/08/20/CookieUtils/" rel="next" title="CookieUtils">
+                <i class="fa fa-chevron-left"></i> CookieUtils
               </a>
             
           </div>
@@ -442,10 +440,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/12/下一步的学习/" rel="prev" title="下一步的学习">
-                下一步的学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -570,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#今天做了啥"><span class="nav-number">1.</span> <span class="nav-text">今天做了啥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能展示"><span class="nav-number">2.</span> <span class="nav-text">功能展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能实现的依赖"><span class="nav-number">3.</span> <span class="nav-text">功能实现的依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收获"><span class="nav-number">4.</span> <span class="nav-text">收获</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来的任务"><span class="nav-number">5.</span> <span class="nav-text">接下来的任务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker安装"><span class="nav-number">1.</span> <span class="nav-text">Docker安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在linux上面安装Docker"><span class="nav-number">1.0.2.</span> <span class="nav-text">在linux上面安装Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker镜像加速器"><span class="nav-number">1.0.3.</span> <span class="nav-text">docker镜像加速器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取镜像"><span class="nav-number">1.0.4.</span> <span class="nav-text">获取镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像的运行"><span class="nav-number">1.0.5.</span> <span class="nav-text">镜像的运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出镜像"><span class="nav-number">1.0.6.</span> <span class="nav-text">退出镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除镜像"><span class="nav-number">1.0.7.</span> <span class="nav-text">删除镜像</span></a></li></ol></li></ol></div>
             
 
           </div>
