@@ -86,14 +86,14 @@
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:description" content="魔法值引发的BUG魔法值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/08/19/魔法值引发的BUG/%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5CSendRedirect.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/19/魔法值引发的BUG/%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/19/魔法值引发的BUG/%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror2.png">
-<meta property="og:updated_time" content="2019-08-20T09:22:37.425Z">
+<meta property="og:image" content="e:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5CSendRedirect.png">
+<meta property="og:image" content="e:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror.png">
+<meta property="og:image" content="e:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror2.png">
+<meta property="og:updated_time" content="2019-08-20T09:26:57.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="魔法值引发的BUG">
 <meta name="twitter:description" content="魔法值引发的BUG魔法值">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/19/魔法值引发的BUG/%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5CSendRedirect.png">
+<meta name="twitter:image" content="e:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5CSendRedirect.png">
 
 
 
@@ -355,11 +355,11 @@
 <p>&emsp;&emsp;把未经预先定义的常量称为魔法值。</p>
 <hr>
 <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>&emsp;&emsp;在删除表格数据的时候，成功删除了数据后，在服务消费者那里出现了以下的错误。</p>
-<p><img src="%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5CSendRedirect.png" alt="无法调用重定向？？"></p>
+<p><img src="E:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5CSendRedirect.png" alt="无法调用重定向？？"></p>
 <p>&emsp;&emsp;我大概看了下，文章的服务消费者的代码部分没错啊，于是，重启了，然后，依旧报以上的错误。于是就去文章的服务提供者那里，也报错了。因为服务提供者是调用服务提供者的，所以，还是调试服务提供者吧。在调试的时候，在单点登录部分，竟发现：</p>
-<p><img src="%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror.png" alt></p>
+<p><img src="E:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror.png" alt></p>
 <p>我都登陆了的啊，咋没这个时候，我就变成了没登陆了的？？？在排查了许久之后，发现了原来是如下部分错了。</p>
-<p><img src="%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror2.png" alt></p>
+<p><img src="E:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror2.png" alt></p>
 <p>这是因为刚开始的时候，<code>attributeName</code>是取为<strong>tbSysUser</strong>，后来就该为了<strong>admin</strong>，但是没有替换全，所以就出现了这里的错误。改了之后，就成功了。</p>
 <hr>
 <p>就此以后一定不会犯<strong>魔法值</strong>的错误了。</p>
