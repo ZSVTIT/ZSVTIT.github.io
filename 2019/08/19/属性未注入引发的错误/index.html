@@ -86,14 +86,14 @@
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:description" content="属性未注入引发的错问题描述">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror1.PNG">
-<meta property="og:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror2.png">
-<meta property="og:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror3.PNG">
-<meta property="og:updated_time" content="2019-08-19T03:41:52.772Z">
+<meta property="og:image" content="https://note.youdao.com/yws/res/44/7BA8F4159DF240108930AB6481E5DE8D">
+<meta property="og:image" content="https://note.youdao.com/yws/res/46/53FBBB93D6B840BB85724B307AFBCD97">
+<meta property="og:image" content="https://note.youdao.com/yws/res/48/1EC4230C52F049D3AAB72BF635064E8B">
+<meta property="og:updated_time" content="2019-08-24T08:22:23.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="属性未注入引发的错误">
 <meta name="twitter:description" content="属性未注入引发的错问题描述">
-<meta name="twitter:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror1.PNG">
+<meta name="twitter:image" content="https://note.youdao.com/yws/res/44/7BA8F4159DF240108930AB6481E5DE8D">
 
 
 
@@ -353,12 +353,12 @@
         <h1 id="属性未注入引发的错"><a href="#属性未注入引发的错" class="headerlink" title="属性未注入引发的错"></a>属性未注入引发的错</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><a id="more"></a>
 
 <p>&emsp;&emsp;在初始化数据表格的时候，文章服务消费者出现了以下的错误</p>
-<p><img src="/.com//E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror1.PNG" alt></p>
+<p><img src="https://note.youdao.com/yws/res/44/7BA8F4159DF240108930AB6481E5DE8D" alt></p>
 <p>&emsp;&emsp;提示内容的大概就是我的<code>sql</code>语法错误了。看到这，我就郁闷了，我在这里使用的是<code>mybatis</code>，具体的<code>sql</code>语句不是我写的啊，我重启了<code>IDEA</code>，因为之前有过类似的错误，重启就解决了。但重启后错误依旧。我回到文章的服务提供者那里，发现那也报错了，这里的错误才是源头。其内容如下：</p>
-<p><img src="/.com//E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror2.png" alt></p>
+<p><img src="https://note.youdao.com/yws/res/46/53FBBB93D6B840BB85724B307AFBCD97" alt></p>
 <hr>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>&emsp;&emsp;在文章服务提供者的<code>PostsApplication</code>(入口类)中，扩大要扫描的包的范围（即在注解<code>@SpringBootApplication</code>后面加上<code>(scanBasePackages = &quot;com.zs.my.book.web&quot;)</code>）。</p>
-<p><img src="/.com//E:%5Cblog%5Csource_posts%5C%E5%B1%9E%E6%80%A7%E6%9C%AA%E6%B3%A8%E5%85%A5%E5%BC%95%E5%8F%91%E7%9A%84%E9%94%99%E8%AF%AF%5Cerror3.PNG" alt></p>
+<p><img src="https://note.youdao.com/yws/res/48/1EC4230C52F049D3AAB72BF635064E8B" alt></p>
 <hr>
 <h3 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h3><p>&emsp;&emsp;在<code>SpringCloud</code>中默认的扫描范围是入口类（<code>xxxApplication</code>)所在的包及其子包，果需要扫描主类当前包外的其他包，就得使用<code>baseBasePackages</code>了。</p>
 

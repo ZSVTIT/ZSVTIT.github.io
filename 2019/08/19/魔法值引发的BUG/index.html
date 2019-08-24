@@ -87,9 +87,9 @@
 <meta property="og:description" content="魔法值引发的BUG魔法值">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://106.52.54.203:8888/group1/M00/00/00/rBAABl1f5diAM_vXAAB3h8fwXAw012.png">
-<meta property="og:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror.png">
-<meta property="og:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror2.png">
-<meta property="og:updated_time" content="2019-08-23T13:12:08.982Z">
+<meta property="og:image" content="https://note.youdao.com/yws/res/37/AE7369D5294D431BA048086931EE252C">
+<meta property="og:image" content="https://note.youdao.com/yws/res/39/AED185D109C84DAE8F766AC7B7FC331F">
+<meta property="og:updated_time" content="2019-08-24T08:18:01.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="魔法值引发的BUG">
 <meta name="twitter:description" content="魔法值引发的BUG魔法值">
@@ -357,9 +357,9 @@
 <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>&emsp;&emsp;在删除表格数据的时候，成功删除了数据后，在服务消费者那里出现了以下的错误。</p>
 <p><img src="http://106.52.54.203:8888/group1/M00/00/00/rBAABl1f5diAM_vXAAB3h8fwXAw012.png" alt="无法调用重定向？？"></p>
 <p>&emsp;&emsp;我大概看了下，文章的服务消费者的代码部分没错啊，于是，重启了，然后，依旧报以上的错误。于是就去文章的服务提供者那里，也报错了。因为服务提供者是调用服务提供者的，所以，还是调试服务提供者吧。在调试的时候，在单点登录部分，竟发现：</p>
-<p><img src="/.com//E:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror.png" alt></p>
+<p><img src="https://note.youdao.com/yws/res/37/AE7369D5294D431BA048086931EE252C" alt></p>
 <p>我都登陆了的啊，咋没这个时候，我就变成了没登陆了的？？？在排查了许久之后，发现了原来是如下部分错了。</p>
-<p><img src="/.com//E:%5Cblog%5Csource_posts%5C%E9%AD%94%E6%B3%95%E5%80%BC%E5%BC%95%E5%8F%91%E7%9A%84BUG%5Cerror2.png" alt></p>
+<p><img src="https://note.youdao.com/yws/res/39/AED185D109C84DAE8F766AC7B7FC331F" alt></p>
 <p>这是因为刚开始的时候，<code>attributeName</code>是取为<strong>tbSysUser</strong>，后来就该为了<strong>admin</strong>，但是没有替换全，所以就出现了这里的错误。改了之后，就成功了。</p>
 <hr>
 <p>就此以后一定不会犯<strong>魔法值</strong>的错误了。</p>

@@ -86,14 +86,14 @@
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:description" content="Request method ‘post’ not supported问题描述">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5Cpost%E9%97%AE%E9%A2%982.png">
-<meta property="og:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5CPost%E9%97%AE%E9%A2%981.png">
-<meta property="og:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5Cpost%E9%97%AE%E9%A2%983.png">
-<meta property="og:updated_time" content="2019-08-17T10:58:41.119Z">
+<meta property="og:image" content="https://note.youdao.com/yws/res/57/68BB01F7E0FE4BCE8625F61087ABCF66">
+<meta property="og:image" content="https://note.youdao.com/yws/res/55/E0302AC3C93D4F0F8C446D01B950D479">
+<meta property="og:image" content="https://note.youdao.com/yws/res/59/16574EB3ABD84C468FD995BEFC3F4661">
+<meta property="og:updated_time" content="2019-08-24T08:27:28.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Request method post not supported">
 <meta name="twitter:description" content="Request method ‘post’ not supported问题描述">
-<meta name="twitter:image" content="http://yoursite.com/.com//E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5Cpost%E9%97%AE%E9%A2%982.png">
+<meta name="twitter:image" content="https://note.youdao.com/yws/res/57/68BB01F7E0FE4BCE8625F61087ABCF66">
 
 
 
@@ -353,12 +353,12 @@
         <h1 id="Request-method-‘post’-not-supported"><a href="#Request-method-‘post’-not-supported" class="headerlink" title="Request method ‘post’ not supported"></a>Request method ‘post’ not supported</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><a id="more"></a>
 
 <p>​            如图，我设置的请求方式是<strong>GET</strong>，</p>
-<p><img src="/.com//E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5Cpost%E9%97%AE%E9%A2%982.png" alt></p>
+<p><img src="https://note.youdao.com/yws/res/57/68BB01F7E0FE4BCE8625F61087ABCF66" alt></p>
 <p>​            访问的时候去提示请求方式<strong>POST</strong>不允许</p>
-<p><img src="/.com//E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5CPost%E9%97%AE%E9%A2%981.png" alt></p>
+<p><img src="https://note.youdao.com/yws/res/55/E0302AC3C93D4F0F8C446D01B950D479" alt></p>
 <hr>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>​             如图，把把圈出来的<code>@PathVariable</code>改为<code>@RequestParam</code></p>
-<p><img src="/.com//E:%5Cblog%5Csource_posts%5CRequest-method-post-not-supported%5Cpost%E9%97%AE%E9%A2%983.png" alt></p>
+<p><img src="https://note.youdao.com/yws/res/59/16574EB3ABD84C468FD995BEFC3F4661" alt></p>
 <hr>
 <h3 id="原因所在"><a href="#原因所在" class="headerlink" title="原因所在"></a>原因所在</h3><p>​             当要传递的参数都使用<code>@PathVariable</code>的话，那么，就会使用<strong>POST</strong>请求方式。</p>
 <hr>

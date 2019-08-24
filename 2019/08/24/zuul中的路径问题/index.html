@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="zuul中的路径问题问题描述&amp;emsp;在使用zuul来做智能路由时，转发的url中，原本是localhost的部分，现在变成了hostname(就是我的电脑的名字了)，导致访问失败。  解决方法&amp;emsp;&amp;emsp;在eureka客户端的配置文件中，加上以下的内容。 1234instance:    hostname: localhost    prefer-ip-address: false">
+<meta name="description" content="zuul中的路径问题问题描述">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zuul中的路径问题">
 <meta property="og:url" content="http://yoursite.com/2019/08/24/zuul中的路径问题/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="zuul中的路径问题问题描述&amp;emsp;在使用zuul来做智能路由时，转发的url中，原本是localhost的部分，现在变成了hostname(就是我的电脑的名字了)，导致访问失败。  解决方法&amp;emsp;&amp;emsp;在eureka客户端的配置文件中，加上以下的内容。 1234instance:    hostname: localhost    prefer-ip-address: false">
+<meta property="og:description" content="zuul中的路径问题问题描述">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://106.52.54.203:8888/group1/M00/00/00/rBAABl1f5M6AHIwkAAAQNlyZA9o405.png">
 <meta property="og:image" content="https://note.youdao.com/yws/res/10/5D8AEE9776804CCF8457041E0EABE36B">
 <meta property="og:image" content="https://note.youdao.com/yws/res/14/75A8C2EFDEC44D77AC86EE2C639CC7CB">
-<meta property="og:updated_time" content="2019-08-24T08:09:21.696Z">
+<meta property="og:updated_time" content="2019-08-24T08:12:16.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="zuul中的路径问题">
-<meta name="twitter:description" content="zuul中的路径问题问题描述&amp;emsp;在使用zuul来做智能路由时，转发的url中，原本是localhost的部分，现在变成了hostname(就是我的电脑的名字了)，导致访问失败。  解决方法&amp;emsp;&amp;emsp;在eureka客户端的配置文件中，加上以下的内容。 1234instance:    hostname: localhost    prefer-ip-address: false">
+<meta name="twitter:description" content="zuul中的路径问题问题描述">
 <meta name="twitter:image" content="http://106.52.54.203:8888/group1/M00/00/00/rBAABl1f5M6AHIwkAAAQNlyZA9o405.png">
 
 
@@ -350,7 +350,9 @@
       
 
       
-        <h1 id="zuul中的路径问题"><a href="#zuul中的路径问题" class="headerlink" title="zuul中的路径问题"></a>zuul中的路径问题</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>&emsp;在使用<code>zuul</code>来做智能路由时，转发的<code>url</code>中，原本是<code>localhost</code>的部分，现在变成了<code>hostname</code>(就是我的电脑的名字了)，导致访问失败。</p>
+        <h1 id="zuul中的路径问题"><a href="#zuul中的路径问题" class="headerlink" title="zuul中的路径问题"></a>zuul中的路径问题</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><a id="more"></a>
+
+<p>&emsp;在使用<code>zuul</code>来做智能路由时，转发的<code>url</code>中，原本是<code>localhost</code>的部分，现在变成了<code>hostname</code>(就是我的电脑的名字了)，导致访问失败。</p>
 <p><img src="http://106.52.54.203:8888/group1/M00/00/00/rBAABl1f5M6AHIwkAAAQNlyZA9o405.png" alt></p>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>&emsp;&emsp;在<code>eureka</code>客户端的配置文件中，加上以下的内容。</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">instance:</span></span><br><span class="line"><span class="attr">    hostname:</span> <span class="string">localhost</span></span><br><span class="line"><span class="attr">    prefer-ip-address:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    instance-id:</span> <span class="attr">localhost:$&#123;server.port&#125;</span></span><br></pre></td></tr></table></figure>
