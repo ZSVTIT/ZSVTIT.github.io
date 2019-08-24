@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="服务消费者(Ribbon)概述&amp;emsp;&amp;emsp;服务消费者：服务的调用方。 &amp;emsp;&amp;emsp;Ribbon 是一个负载均衡（ 分摊到多个操作单元上进行执行，这里的操作单元可以是服务器，这里的例子是端口号）客户端，可以很好的控制 http 和 tcp 的一些行为。  大白话&amp;emsp;&amp;emsp;服务消费者就是开放给用户来调用服务提供者的。 &amp;emsp;&amp;emsp;Ribbon调用服务提">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务消费者-Ribbon">
+<meta property="og:url" content="http://yoursite.com/2019/08/24/服务消费者-Ribbon/index.html">
+<meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="服务消费者(Ribbon)概述&amp;emsp;&amp;emsp;服务消费者：服务的调用方。 &amp;emsp;&amp;emsp;Ribbon 是一个负载均衡（ 分摊到多个操作单元上进行执行，这里的操作单元可以是服务器，这里的例子是端口号）客户端，可以很好的控制 http 和 tcp 的一些行为。  大白话&amp;emsp;&amp;emsp;服务消费者就是开放给用户来调用服务提供者的。 &amp;emsp;&amp;emsp;Ribbon调用服务提">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-24T09:28:26.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="服务消费者-Ribbon">
+<meta name="twitter:description" content="服务消费者(Ribbon)概述&amp;emsp;&amp;emsp;服务消费者：服务的调用方。 &amp;emsp;&amp;emsp;Ribbon 是一个负载均衡（ 分摊到多个操作单元上进行执行，这里的操作单元可以是服务器，这里的例子是端口号）客户端，可以很好的控制 http 和 tcp 的一些行为。  大白话&amp;emsp;&amp;emsp;服务消费者就是开放给用户来调用服务提供者的。 &amp;emsp;&amp;emsp;Ribbon调用服务提">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/24/服务消费者-Ribbon/">
+
+
+
+
+
+  <title>服务消费者-Ribbon | 学习笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学习笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/服务消费者-Ribbon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhengSheng">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学习笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">服务消费者-Ribbon</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T17:26:35+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微服务/" itemprop="url" rel="index">
+                    <span itemprop="name">微服务</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总访问量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="服务消费者-Ribbon"><a href="#服务消费者-Ribbon" class="headerlink" title="服务消费者(Ribbon)"></a>服务消费者(Ribbon)</h1><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>&emsp;&emsp;服务消费者：服务的调用方。</p>
+<p>&emsp;&emsp;Ribbon 是一个<strong>负载均衡</strong>（ 分摊到多个操作单元上进行执行，这里的操作单元可以是服务器，这里的例子是<strong>端口号</strong>）客户端，可以很好的控制 <code>http</code> 和 <code>tcp</code> 的一些行为。</p>
+<hr>
+<h3 id="大白话"><a href="#大白话" class="headerlink" title="大白话"></a>大白话</h3><p>&emsp;&emsp;服务消费者就是开放给用户来调用服务提供者的。</p>
+<p>&emsp;&emsp;<code>Ribbon</code>调用服务提供者的方法：在服务接口中</p>
+<hr>
+<h3 id="怎么调用服务提供者"><a href="#怎么调用服务提供者" class="headerlink" title="怎么调用服务提供者"></a>怎么调用服务提供者</h3><p>&emsp;&emsp;在服务类中(xxxService)中</p>
+<ul>
+<li>加上注入</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> RestTemplate restTemplate;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在方法中</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> restTemplate.getForObject(<span class="string">"http://服务的地址（在本地上可以用服务名）/mapper?属性="</span> + 属性值, String.class);</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建服务消费者Ribbon"><a href="#创建服务消费者Ribbon" class="headerlink" title="创建服务消费者Ribbon"></a>创建服务消费者Ribbon</h4><ul>
+<li><p><code>pom.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.zs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hello-spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>&gt;</span>../hello-spring-cloud-dependencies/pom.xml<span class="tag">&lt;/<span class="name">relativePath</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hello-spring-cloud-web-admin-ribbon<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hello-spring-cloud-web-admin-ribbon<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://www.2handedbook.com<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">inceptionYear</span>&gt;</span>2018-Now<span class="tag">&lt;/<span class="name">inceptionYear</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- Spring Boot Begin --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- Spring Boot End --&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Spring Cloud Begin --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-ribbon<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- Spring Cloud End --&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 解决 thymeleaf 模板引擎一定要执行严格的 html5 格式校验问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sourceforge.nekohtml<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>nekohtml<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.zs.hello.spring.cloud.web.admin.ribbon.WebAdminRibbonApplication<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p><code>xxxApplication.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zs.hello.spring.cloud.web.admin.ribbon;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebAdminRibbonApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(WebAdminRibbonApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>application.yml</code></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">hello-spring-cloud-web-admin-ribbon</span></span><br><span class="line"><span class="attr">  thymeleaf:</span></span><br><span class="line"><span class="attr">    cache:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    mode:</span> <span class="string">LEGACYHTML5</span></span><br><span class="line"><span class="attr">    encoding:</span> <span class="string">UTF-8</span></span><br><span class="line"><span class="attr">    servlet:</span></span><br><span class="line"><span class="attr">      content-type:</span> <span class="string">text/html</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8764</span></span><br><span class="line"></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    serviceUrl:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://localhost:8761/eureka/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Configuration</code></p>
+<p>配置注入<code>RestTemplate</code>的<code>bean</code>，并且通过注解<strong><code>@LoadBalanced</code></strong>来开启<strong>负载均衡</strong>的功能。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zs.hello.spring.cloud.web.admin.ribbon.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.loadbalancer.LoadBalanced;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.client.RestTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RestTemplateConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@LoadBalanced</span><span class="comment">//开启负载均衡功能</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RestTemplate <span class="title">restTemplate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> RestTemplate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建测试用得<code>Service</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zs.hello.spring.cloud.web.admin.ribbon.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.client.RestTemplate;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdminService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span><span class="comment">//这里是自动注入，相当于在applicationContext.xml里面赋值了。</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHi</span><span class="params">(String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> restTemplate.getForObject(<span class="string">"http://HELLO-SPRING-CLOUD-SERVICE-ADMIN/hi?message="</span> + message, String.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建测试用的<code>Controller</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.zs.hello.spring.cloud.web.admin.ribbon.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.zs.hello.spring.cloud.web.admin.ribbon.service.AdminService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdminController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AdminService adminService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(value = <span class="string">"hi"</span>, method = RequestMethod.GET)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHi</span><span class="params">(@RequestParam String message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> adminService.sayHi(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h4 id="测试访问"><a href="#测试访问" class="headerlink" title="测试访问"></a>测试访问</h4><p>在浏览器上多次访问<a href="http://localhost:8764/hi?message=HelloRibbon" target="_blank" rel="noopener">http://localhost:8764/hi?message=HelloRibbon</a><br>查看输出信息的变化，会发现端口号在<strong>8762和8763之间不停地变换</strong>。</p>
+<h3 id="Controller中的-RequestParm的解释"><a href="#Controller中的-RequestParm的解释" class="headerlink" title="Controller中的@RequestParm的解释"></a><code>Controller</code>中的<code>@RequestParm</code>的解释</h3><p><code>@RequestParam</code>用于将请求参数区数据映射到功能处理方法的参数上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sayHi(<span class="meta">@RequestParam</span> String message);<span class="comment">//表示请求的参数区中的名字为message的参数的值将传入</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="RestTemplate"><a href="#RestTemplate" class="headerlink" title="RestTemplate"></a>RestTemplate</h3><p><a href="https://www.cnblogs.com/javazhiyin/p/9851775.html" title="RestTemplate介绍" target="_blank" rel="noopener">RestTemplate的介绍</a></p>
+<p>是<code>Spring</code>用于<code>同步client</code>端的核心类，简化了与<code>http</code>服务的通信，并满足<code>RestFul</code>原则，程序代码可以给它提供<code>URL</code>，并提取结果。</p>
+<p> <code>Service</code>中的<code>getForObject()</code>是<code>RestTemplate</code>请求方法中的一种。</p>
+<p><code>RestTemplate</code>的请求和<code>Http</code>请求的对比。</p>
+<table>
+<thead>
+<tr>
+<th>Http Method</th>
+<th>RestTemplate Method</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DELETE</td>
+<td>delete</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>getForObject(返回消息体)</td>
+</tr>
+<tr>
+<td></td>
+<td>getForEntity</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>headForHeaders</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>optionsForAllow</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>postForLocation</td>
+</tr>
+<tr>
+<td></td>
+<td>postForObject</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>put</td>
+</tr>
+<tr>
+<td>any</td>
+<td>exchange</td>
+</tr>
+<tr>
+<td></td>
+<td>execute</td>
+</tr>
+</tbody></table>
+<p><strong>如果只关注，返回的消息体，可以直接使用postForObject</strong>。</p>
+<p>getForEntity方法的返回值是一个<code>ResponseEntity&lt;T&gt;</code>，<code>ResponseEntity&lt;T&gt;</code>是Spring对HTTP请求响应的封装，包括了几个重要的元素，如响应码、contentType、contentLength、响应消息体等。</p>
+<hr>
+<h4 id="Autowired的用法和作用"><a href="#Autowired的用法和作用" class="headerlink" title="@Autowired的用法和作用"></a>@Autowired的用法和作用</h4><pre><code>这个注解可以对类成员变量、方法及构造函数进行自动装配的工作。通过`@Autowired`的使用来消除`set`,`get`方法。用了`@Autowired`的话，只需要声明即可。</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> AdminService adminService;<span class="comment">//这样就能使用adminService了，它是一个五脏俱全的实例了。</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="LoadBalance"><a href="#LoadBalance" class="headerlink" title="@LoadBalance"></a>@LoadBalance</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@LoadBalanced</span><span class="comment">//表示开启负载均衡功能</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://baike.baidu.com/item/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/932451?fr=aladdin" title="什么是符合均衡" target="_blank" rel="noopener">什么是符合均衡</a></p>
+<hr>
+<h4 id="Bean"><a href="#Bean" class="headerlink" title="@Bean"></a>@Bean</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@LoadBalanced</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RestTemplate <span class="title">restTemplate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> RestTemplate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>等同与在<code>ApplicationContext.xml</code>里的配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"restTemplate"</span> <span class="attr">class</span>=<span class="string">"xxx.xxx.xxx.RestTemplate"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h4><p><code>@Configuration</code>用于定义配置类，可替换<code>xml</code>配置文件，被注解的类内部包含有<strong>一个或多个</strong>被<code>@Bean</code>注解的方法，这些方法将会被<code>AnnotationConfigApplicationContext</code>或<code>AnnotationConfigWebApplicationContext</code>类进行扫描，并用于构建<code>bean</code>定义，初始化<code>Spring</code>容器。</p>
+<hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/24/服务提供者/" rel="next" title="服务提供者">
+                <i class="fa fa-chevron-left"></i> 服务提供者
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="ZhengSheng">
+            
+              <p class="site-author-name" itemprop="name">ZhengSheng</p>
+              <p class="site-description motion-element" itemprop="description">No pains,no gains</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务消费者-Ribbon"><span class="nav-number">1.</span> <span class="nav-text">服务消费者(Ribbon)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大白话"><span class="nav-number">1.0.1.</span> <span class="nav-text">大白话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么调用服务提供者"><span class="nav-number">1.0.2.</span> <span class="nav-text">怎么调用服务提供者</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建服务消费者Ribbon"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">创建服务消费者Ribbon</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试访问"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">测试访问</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller中的-RequestParm的解释"><span class="nav-number">1.0.3.</span> <span class="nav-text">Controller中的@RequestParm的解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RestTemplate"><span class="nav-number">1.0.4.</span> <span class="nav-text">RestTemplate</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Autowired的用法和作用"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">@Autowired的用法和作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LoadBalance"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">@LoadBalance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">@Bean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Configuration"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">@Configuration</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZhengSheng</span>
+
+  
+</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本博客访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本博客总访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/click_show_text.js"></script>
