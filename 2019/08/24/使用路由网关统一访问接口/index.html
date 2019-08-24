@@ -86,13 +86,14 @@
 <meta property="og:site_name" content="学习笔记">
 <meta property="og:description" content="使用路由网关统一访问接口">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4174549873,3621025584&fm=173&app=49&f=JPEG?w=640&h=356&s=19843C7A95634509507C54DF0000C0B3">
 <meta property="og:image" content="http://106.52.54.203:8888/group1/M00/00/00/rBAABl1g_LqAA77dAAAgVED70r4448.PNG">
 <meta property="og:image" content="http://106.52.54.203:8888/group1/M00/00/00/rBAABl1g_NqAHuCjAAAgYXDUEmk421.PNG">
-<meta property="og:updated_time" content="2019-08-24T09:31:01.380Z">
+<meta property="og:updated_time" content="2019-08-24T11:02:22.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用路由网关统一访问接口">
 <meta name="twitter:description" content="使用路由网关统一访问接口">
-<meta name="twitter:image" content="http://106.52.54.203:8888/group1/M00/00/00/rBAABl1g_LqAA77dAAAgVED70r4448.PNG">
+<meta name="twitter:image" content="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4174549873,3621025584&fm=173&app=49&f=JPEG?w=640&h=356&s=19843C7A95634509507C54DF0000C0B3">
 
 
 
@@ -351,7 +352,9 @@
       
         <h3 id="使用路由网关统一访问接口"><a href="#使用路由网关统一访问接口" class="headerlink" title="使用路由网关统一访问接口"></a>使用路由网关统一访问接口</h3><a id="more"></a>
 
-<h3 id="Zuul简介"><a href="#Zuul简介" class="headerlink" title="Zuul简介"></a>Zuul简介</h3><p>&emsp;&emsp;Zuul 的主要功能是路由转发和过滤器。路由功能是微服务的一部分，比如 <code>/api/user</code> 转发到到 User 服务，<code>/api/shop</code> 转发到到 <code>shop</code> 服务。<code>Zuul</code> 默认和 <code>Ribbon</code> 结合实现了负载均衡的功能。</p>
+<h3 id="Zuul简介"><a href="#Zuul简介" class="headerlink" title="Zuul简介"></a>Zuul简介</h3><p>&emsp;&emsp;作用：api网关，路由，负载均衡等多种作用</p>
+<p>&emsp;&emsp;在微服务架构中，后端服务往往不直接开放给调用端，而是通过一个<code>API</code>网关根据请求的<code>url</code>，<strong>路由</strong>到相应的服务。当添加API网关后，在第三方调用端和服务提供方之间就创建了一面墙，这面墙直接与调用方通信进行权限控制，后将请求均衡分发给后台服务端。</p>
+<p><img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4174549873,3621025584&fm=173&app=49&f=JPEG?w=640&h=356&s=19843C7A95634509507C54DF0000C0B3" alt></p>
 <hr>
 <h3 id="使用Zuul"><a href="#使用Zuul" class="headerlink" title="使用Zuul"></a>使用Zuul</h3><ul>
 <li><p>给<code>pom.xml</code>添加依赖</p>
@@ -496,7 +499,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
