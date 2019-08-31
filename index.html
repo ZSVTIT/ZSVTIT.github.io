@@ -344,21 +344,14 @@
 
       
         
-          
-            <h1 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>&nbsp;&nbsp;今天在做查询部分的时候，不管怎么设置查询条件都实现不了查询。在<code>debug</code>的时候，发现在服务消费者的<code>controller</code>中明明有值的部分，在服务提供者的<code>controller</code>中就为<code>null</code>了。（黑人问号？？）</p>
-<p>&nbsp;&nbsp;有值：</p>
-<p><img src="https://note.youdao.com/yws/res/134/40C36ED648DC4C56A231A664DF5CE943" alt></p>
-<p>&nbsp;&nbsp;为<code>null</code>了？？</p>
-<p><img src="https://note.youdao.com/yws/res/134/40C36ED648DC4C56A231A664DF5CE943" alt></p>
-<hr>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>&nbsp;&nbsp;如图，把服务消费者的<code>service</code>中圈出来的部分，改为<code>tbWebVisitorJson</code>就可以了</p>
-<p><img src="https://note.youdao.com/yws/res/134/40C36ED648DC4C56A231A664DF5CE943" alt></p>
-<hr>
-<h3 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h3><p>&nbsp;&nbsp;因为对应的部分，在服务提供者中的变量名为<code>tbWebVisitor</code>，因为之前没有对应上，所以就报错了。</p>
-<hr>
-<h3 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h3><p>&nbsp;&nbsp;这个小小的错误，我不再像以前那样蒙头蒙脑到处找错了，而是一步一步地根据各个服务之间的联想来排错。这是一个进步，所以在这里好好地记录一下。</p>
-
-          
+          <h1 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/31/传值问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
